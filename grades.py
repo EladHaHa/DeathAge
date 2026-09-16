@@ -41,5 +41,5 @@ if st.button("Predict"):
 
 
     st.subheader("Predicted salary:")
-    st.write(output)
+    st.write(f"{output:,}")(output)
 
