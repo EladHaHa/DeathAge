@@ -3,14 +3,14 @@ import pandas as pd
 import numpy as np
 import kagglehub
 import os
-path = kagglehub.dataset_download("rsadiq/salary")
+path = kagglehub.dataset_download("mrsimple07/salary-prediction-data")
 
-df = pd.read_csv(os.path.join(path, "Salary.csv"))
-
+df = pd.read_csv(os.path.join(path, "salary_prediction_data.csv"))
+df.dropna()
 
 from sklearn.model_selection import train_test_split
 
-X = df[["YearsExperience"]]
+X = df[["Experience"]]
 
 y = df[["Salary"]]
 
