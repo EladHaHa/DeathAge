@@ -28,7 +28,7 @@ model = LinearRegression()
 model.fit(X_train, y_train)
 
 
-st.title("Experience predict")
+st.title("Salary predict")
 
 input = st.number_input("Enter your experience years: ")
 
