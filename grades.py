@@ -9,11 +9,7 @@ df = pd.read_csv(os.path.join(path, "Salary_Data.csv"))
 
 original_processed_df = df.copy()
 df = df.dropna()
-df
 
-
-
-original_processed_df = df.copy()
 
 from sklearn.model_selection import train_test_split
 
@@ -37,7 +33,7 @@ model.fit(X_train, y_train)
 
 st.title("Experience predict")
 
-input = input("Enter yearly salary")
+input = st.text_input("Enter yearly salary")
 
 
 if st.button("Predict"):
