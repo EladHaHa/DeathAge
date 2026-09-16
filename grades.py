@@ -7,9 +7,6 @@ path = kagglehub.dataset_download("rsadiq/salary")
 
 df = pd.read_csv(os.path.join(path, "Salary.csv"))
 
-original_processed_df = df.copy()
-df = df.dropna()
-
 
 from sklearn.model_selection import train_test_split
 
