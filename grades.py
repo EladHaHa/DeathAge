@@ -38,7 +38,8 @@ input = st.number_input("Enter yearly salary")
 
 if st.button("Predict"):
 
-    output = round(model.predict([[input]])[0])
+    prediction = model.predict([[input]])
+    output = round(prediction.item())
 
 
     st.subheader("Result")
