@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 import kagglehub
 import os
-path = kagglehub.dataset_download("wardabilal/salary-prediction-dataset")
+path = kagglehub.dataset_download("rsadiq/salary")
 
-df = pd.read_csv(os.path.join(path, "Salary_Data.csv"))
+df = pd.read_csv(os.path.join(path, "Salary.csv"))
 
 original_processed_df = df.copy()
 df = df.dropna()
@@ -13,9 +13,9 @@ df = df.dropna()
 
 from sklearn.model_selection import train_test_split
 
-X = df[["Salary"]]
+X = df[["YearsExperience"]]
 
-y = df[["Years of Experience"]]
+y = df[["Salary"]]
 
 X_train, X_test, y_train, y_test = train_test_split(
     X,
@@ -33,7 +33,7 @@ model.fit(X_train, y_train)
 
 st.title("Experience predict")
 
-input = st.number_input("Enter yearly salary (dollars)")
+input = st.number_input("Enter your experience years: ")
 
 
 if st.button("Predict"):
@@ -43,6 +43,6 @@ if st.button("Predict"):
 
 
 
-    st.subheader("Experience years:")
+    st.subheader("Predicted salary:")
     st.write(output)
 
