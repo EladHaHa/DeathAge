@@ -3,16 +3,16 @@ import pandas as pd
 import numpy as np
 import kagglehub
 import os
-path = kagglehub.dataset_download("imoore/age-dataset")
+path = kagglehub.dataset_download("rsadiq/salary")
 
-df = pd.read_csv(os.path.join(path, "AgeDataset-V1.csv"))
+df = pd.read_csv(os.path.join(path, "Salary.csv"))
 
 
 from sklearn.model_selection import train_test_split
 
-X = df[["Birth year"]]
+X = df[["YearsExperience"]]
 
-y = df[["Age of death"]]
+y = df[["Salary"]]
 
 X_train, X_test, y_train, y_test = train_test_split(
     X,
@@ -28,9 +28,9 @@ model = LinearRegression()
 model.fit(X_train, y_train)
 
 
-st.title("Death predict")
+st.title("Experience predict")
 
-input = st.number_input("Enter your birth year: ")
+input = st.number_input("Enter your experience years: ")
 
 
 if st.button("Predict"):
@@ -40,6 +40,5 @@ if st.button("Predict"):
 
 
 
-    st.subheader("Predicted age of death:")
-    st.write(output)
-
+    st.subheader("Predicted salary:")
+    st.write(f"{output:,}")
