@@ -33,7 +33,7 @@ model.fit(X_train, y_train)
 
 st.title("Experience predict")
 
-input = st.number_input("Enter yearly salary")
+input = st.number_input("Enter yearly salary (dollars)")
 
 
 if st.button("Predict"):
@@ -42,8 +42,7 @@ if st.button("Predict"):
     output = round(prediction.item())
 
 
-    st.subheader("Result")
 
-    st.write("Experience years:")
+    st.subheader("Experience years:")
     st.write(output)
 
